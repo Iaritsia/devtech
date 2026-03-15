@@ -1,13 +1,13 @@
 h1 {font-family: 3rem;
-    background: linear-gradient(90deg, #7646e5, #06b6d4);
+    background: linear-gradient(100deg, #7646e5, #06b6d4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
 }
 
 h2 {
-    font-size: 28px;
-    color: #16d83a;
+    font-family: 30px;
+    color: #0a0c0b;
     position: relative;
 }
 
