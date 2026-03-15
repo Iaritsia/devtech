@@ -11,6 +11,12 @@ h2 {
     position: relative;
 }
 
+h3 {
+    margin-top: 30px;
+    color: brown;
+    position: relative;
+} 
+
 
 p {
     font-family: 'Segoe UI', Arial, sans-serif;
