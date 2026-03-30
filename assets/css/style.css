@@ -1,36 +1,134 @@
-h1 {font-family: 3rem;
-    background: linear-gradient(100deg, #7646e5, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-h2 {
-    font-family: 30px;
-    color: #0a0c0b;
-    position: relative;
+/* FUNDO GERAL */
+body {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: #333;
+  padding: 20px;
 }
 
-h3 {
-    margin-top: 30px;
-    color: brown;
-    position: relative;
-} 
-
-
-p {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    color: #222;
-    margin-bottom: 10px;
+/* MENU */
+nav {
+  margin-bottom: 20px;
 }
 
-img{
-    display:block
-    margin:auto;
-    width: 500px;
+nav a {
+  text-decoration: none;
+  color: #fff;
+  margin-right: 15px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
+nav a:hover {
+  color: #38bdf8;
+}
 
+/* CONTAINER PRINCIPAL */
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* TÍTULOS */
+h1, h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #1e3a8a;
+}
+
+/* IMAGEM */
+.banner {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* TEXTO DO EVENTO */
+.info-evento {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.info-evento p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+/* FORMULÁRIO */
+form {
+  margin-top: 20px;
+}
+
+/* LABELS */
+label {
+  font-weight: 600;
+  display: block;
+  margin-top: 12px;
+}
+
+/* INPUTS */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+/* FOCO */
+input:focus, select:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
+}
+
+/* RADIO E CHECKBOX */
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}
+
+/* GRUPOS */
+.grupo {
+  margin-top: 10px;
+}
+
+/* BOTÃO */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+}
  
