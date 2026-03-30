@@ -1,49 +1,141 @@
 <!DOCTYPE html>
-<html>
-    </body>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscrição para Evento</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaeaea;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 500px;
+            background: white;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .inline {
+            margin-top: 10px;
+        }
+
+        .inline input {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Inscrição para o Evento</h1>
+        <p>23/07/2026 - Teatro Colégio Londrinense - Londrina/PR</p>
+    </div>
+
+    <div class="container">
+        <form>
+
+            <label>Nome completo:</label>
+            <input type="text" name="nome" required>
+
+            <label>E-mail:</label>
+            <input type="email" name="email" required>
+
+            <label>Telefone:</label>
+            <input type="tel" name="telefone">
+
+            <label>Data de nascimento:</label>
+            <input type="date" name="nascimento">
+
+            <label>Área de atuação:</label>
+            <select name="area">
+                <option>Estudante</option>
+                <option>Desenvolvedor</option>
+                <option>Profissional de TI</option>
+                <option>Empreendedor</option>
+                <option>Outro</option>
+            </select>
+
+            <label>Qual atividade você tem mais interesse?</label>
+            <div class="inline">
+                <input type="radio" name="interesse"> Palestras sobre Inteligência Artificial
+            </div>
+            <div class="inline">
+                <input type="radio" name="interesse"> Workshop de Desenvolvimento Mobile
+            </div>
+            <div class="inline">
+                <input type="radio" name="interesse"> Ambos
+            </div>
+
+            <label>Como ficou sabendo do evento?</label>
+            <div class="inline">
+                <input type="checkbox"> Instagram
+            </div>
+            <div class="inline">
+                <input type="checkbox"> Faculdade / Escola
+            </div>
+            <div class="inline">
+                <input type="checkbox"> Amigos
+            </div>
+            <div class="inline">
+                <input type="checkbox"> Internet
+            </div>
+
+            <label>Observações ou expectativas:</label>
+            <textarea rows="4"></textarea>
+
+            <button type="submit">Confirmar inscrição</button>
+
+        </form>
+    </div>
+
+</body>
 </html>
-
-<form> 
-   <label>Nome completo:</label><br>  
-   <input type="text" name="Nome" required><br><br>
-
-   <label>E-mail:</label><br>  
-   <input type="email" name="email" required><br><br>
-
-   <label>Telefone:</label><br>
-   <input type= "tel" name= "Telefone"><br><br>
-
-   <label>Data de nascimento:</label><br>
-   <input type= "date" name="nascimento"><br><br>
-
-   <label>Área de atuação:</label><br>
-   <select name="area">
-    <option>Estudante</option>
-    <option>Desenvolvedor</option>
-    <option>Profissional de TI</option>
-    <option>Empreendedor</option>
-    <option>Outro</option>
-</select><br><br>
-
-<label>Qual atividade voce tem mais interesse?</label><br>
-
-   <input type="radio" name="interesse">Pelestras sobre Inteligencia Artficil<br>
-   <input type="radio" name=" interesse"> Workshop de Desenvolvimento Mobili<br>
-   <input type="radio" name="interesse">Ambos<br><br>
-
-   <input>Como ficou sabendo do evento?</label><br>
-
-   <input type="checkbox">Faculdade / Escola<br>
-   <input type="checkbox"> Amigos<br>
-   <input type="checkbox"> Internet<br><br>
-
-   <label type="submit" value="Confirmar inscrição">
-
-   </form>
-
-   </body>
-
-   </html>
 
 
 
