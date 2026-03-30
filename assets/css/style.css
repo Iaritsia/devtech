@@ -10,34 +10,41 @@
 body {
   background: linear-gradient(135deg, #0f172a, #1e3a8a);
   color: #333;
-  padding: 20px;
+
+  /* CENTRALIZA TUDO NA TELA */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 30px 15px;
 }
 
-/* MENU */
+/* CONTAINER PRINCIPAL */
+.container {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* MENU CENTRALIZADO */
 nav {
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
 nav a {
   text-decoration: none;
   color: #fff;
-  margin-right: 15px;
+  margin: 0 10px;
   font-weight: bold;
   transition: 0.3s;
 }
 
 nav a:hover {
   color: #38bdf8;
-}
-
-/* CONTAINER PRINCIPAL */
-.container {
-  max-width: 900px;
-  margin: auto;
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* TÍTULOS */
@@ -49,23 +56,24 @@ h1, h2 {
 
 /* IMAGEM */
 .banner {
-  width: 100%;
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 100%;
   border-radius: 10px;
-  margin-bottom: 20px;
 }
 
 /* TEXTO DO EVENTO */
 .info-evento {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .info-evento p {
-  margin: 8px 0;
-  line-height: 1.5;
+  margin: 10px 0;
+  line-height: 1.6;
 }
 
-/* FORMULÁRIO */
+/* FORMULÁRIO CENTRALIZADO */
 form {
   margin-top: 20px;
 }
@@ -94,23 +102,34 @@ input:focus, select:focus {
   box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
 }
 
-/* RADIO E CHECKBOX */
+/* RADIO E CHECKBOX (ALINHADOS) */
 input[type="radio"],
 input[type="checkbox"] {
   width: auto;
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
 /* GRUPOS */
 .grupo {
+  margin-top: 15px;
+}
+
+/* ALINHAR OPÇÕES (radio/checkbox) */
+.opcoes {
   margin-top: 10px;
+}
+
+.opcoes label {
+  display: block;
+  margin-bottom: 5px;
+  cursor: pointer;
 }
 
 /* BOTÃO */
 button {
   width: 100%;
   padding: 12px;
-  margin-top: 20px;
+  margin-top: 25px;
   border: none;
   border-radius: 10px;
   background: #2563eb;
@@ -127,8 +146,11 @@ button:hover {
 
 /* RESPONSIVO */
 @media (max-width: 600px) {
+  body {
+    padding: 20px 10px;
+  }
+
   .container {
-    padding: 15px;
+    padding: 20px;
   }
 }
- 
