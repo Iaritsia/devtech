@@ -134,3 +134,33 @@ button:hover {
   }
 }
 
+.topicos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #2b6cb0; /* mantém seu azul */
+}
+
+.card p {
+  color: #444;
+  line-height: 1.5;
+}
