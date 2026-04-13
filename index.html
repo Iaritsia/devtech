@@ -114,6 +114,20 @@
   setInterval(atualizarContador, 1000);
 </script>
 
+<script>
+function toggleOutros() {
+    const checkbox = document.getElementById("outrosCheck");
+    const campo = document.getElementById("campoOutros");
+
+    if (checkbox.checked) {
+        campo.disabled = false;
+    } else {
+        campo.disabled = true;
+        campo.value = "";
+    }
+}
+</script>
+
 </body>
 </html>
 
