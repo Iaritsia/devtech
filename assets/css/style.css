@@ -164,3 +164,12 @@ button:hover {
   color: #444;
   line-height: 1.5;
 }
+
+/* CRONÔMETRO */
+.contador {
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #2563eb; /* azul do seu botão */
+  text-align: center;
+}
