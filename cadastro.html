@@ -131,33 +131,33 @@
 
             <label>Qual atividade você tem mais interesse?</label>
             <div class="inline">
-                <input type="radio" name="interesse"> Palestras sobre Inteligência Artificial
+                <input type="radio" name="interesse" value="Ia"> Palestras sobre Inteligência Artificial
             </div>
             <div class="inline">
-                <input type="radio" name="interesse"> Workshop de Desenvolvimento Mobile
+                <input type="radio" name="interesse" value="Mobile"> Workshop de Desenvolvimento Mobile
             </div>
             <div class="inline">
-                <input type="radio" name="interesse"> Ambos
+                <input type="radio" name="interesse" value="Ambos"> Ambos
             </div>
 
             <label>Como ficou sabendo do evento?</label>
             <div class="inline">
-                <input type="checkbox"> Instagram
+                <input type="checkbox" name="origem[]" value="Instagram"> Instagram
             </div>
             <div class="inline">
-                <input type="checkbox"> Faculdade / Escola
+                <input type="checkbox" name="origem[]" value="Faculdade"> Faculdade / Escola
             </div>
             <div class="inline">
-                <input type="checkbox"> Amigos
+                <input type="checkbox" name="origem[]" value="Amigos"> Amigos
             </div>
             <div class="inline">
-                <input type="checkbox"> Internet
+                <input type="checkbox" name="origem[]" value="Internet"> Internet
             </div>
             <div class="inline">
-            <input type="checkbox" id="outrosCheck" onclick="toggleOutros()"> Outros 
+            <input type="checkbox" id="outrosCheck" onclick="toggleOutros()"  name="origem[]" value="Outros" > Outros 
             </div>
 
-            <input type="text" id="campoOutros" placeholder="Digite aqui..." disabled>
+            <input type="text" id="campoOutros" name="outrosTexto" placeholder="Digite aqui..." disabled>
 
         
            
