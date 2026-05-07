@@ -97,6 +97,13 @@
         }
     </style>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+    const supabaseClient =supabase.createClient(
+    "https://mxadxpzrmnszzrxfgxyc.supabase.co/rest/v1/",
+    "sb_publishable_vRBoSsDRe_phd-kZ0wy5Rw_4EXRkp99Y"    
+    );
+</script>
 
 <body>
 
@@ -121,7 +128,7 @@
             <input type="date" name="nascimento">
 
             <label>Área de atuação:</label>
-            <select name="area">
+            <select name="atuacao">
                 <option>Estudante</option>
                 <option>Desenvolvedor</option>
                 <option>Profissional de TI</option>
@@ -176,6 +183,52 @@
 
         </form>
     </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+ 
+    const form = document.getElementById("formCadastro");
+    const botao = document.getElementById("btnEnviar");
+ 
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+ 
+        botao.disabled = true;
+        botao.innerText = "Enviando...";
+ 
+        const formData = new FormData(form);
+ 
+const dados = {
+    nome: formData.get("nome"),
+    email: formData.get("email"),
+    telefone: formData.get("telefone"),
+    nascimento: formData.get("nascimento"),
+    atuacao: formData.get("atuacao"),
+    interesse: formData.get("interesse"),
+    fonte: formData.getAll("fonte[]").join(", "),
+    fonte_outros: formData.get("fonte_outros"),
+    outros: formData.get("outros")
+};
+ 
+        try {
+            const { error } = await supabaseClient
+                .from("Cadastro")
+                .insert([dados]);
+ 
+            if (error) throw error;
+ 
+            window.location.href = "obrigado.html";
+ 
+        } catch (err) {
+            console.error(err);
+            alert("Erro ao salvar no banco.");
+        }
+ 
+        botao.disabled = false;
+        botao.innerText = "Confirmar Inscrição";
+    });
+ 
+});
+</script>
 
 </body>
 </html>
