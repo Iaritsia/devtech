@@ -100,7 +100,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script>
     const supabaseClient =supabase.createClient(
-    "https://mxadxpzrmnszzrxfgxyc.supabase.co/rest/v1/",
+    "https://mxadxpzrmnszzrxfgxyc.supabase.co",
     "sb_publishable_vRBoSsDRe_phd-kZ0wy5Rw_4EXRkp99Y"    
     );
 </script>
@@ -113,7 +113,7 @@
     </div>
 
     <div class="container">
-        <form id="formCadastro" action="//formspree.io/f/mbdwraev" method="POST">
+        <form id="formCadastro">
 
             <label>Nome completo:</label>
             <input type="text" name="nome" required>
@@ -172,11 +172,11 @@
 
 
             <label>Observações ou expectativas:</label>
-            <textarea rows="4"></textarea>
+            <textarea outros rows="4"></textarea>
 
             <input type="hidden" name="_subject" value="Nova inscrição - DevTech">
 
-            <button type="submit">Confirmar inscrição</button>
+            <button type="submit" id="btnEnviar">Confirmar inscrição</button>
 
             <!-- Botão de voltar -->
             <a href="index.html" class="btn-voltar">Voltar para a página inicial</a>
@@ -204,8 +204,8 @@ const dados = {
     nascimento: formData.get("nascimento"),
     atuacao: formData.get("atuacao"),
     interesse: formData.get("interesse"),
-    fonte: formData.getAll("fonte[]").join(", "),
-    fonte_outros: formData.get("fonte_outros"),
+    origem: formData.getAll("origem[]").join(", "),
+    fonte_outros: formData.get("outros_texto"),
     outros: formData.get("outros")
 };
  
