@@ -42,3 +42,25 @@ async function carregarInscritos() {
 
     });
 }
+
+const dataEvento = new Date(2026, 6, 23, 0, 0, 0);
+
+  function atualizarContador() {
+    const agora = new Date();
+    const diferenca = dataEvento - agora;
+
+    if (diferenca <= 0) {
+      document.getElementById("contador").innerHTML = "O evento começou!";
+      return;
+    }
+
+    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferenca / 1000) % 60);
+
+    document.getElementById("contador").innerHTML =
+      `Faltam: ${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
+  }
+
+  setInterval(atualizarContador, 1000);
