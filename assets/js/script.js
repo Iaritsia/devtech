@@ -1,3 +1,6 @@
+if (document.getElementById("tabelaInscritos")) {
+     carregarInscritos();
+}
 async function carregarInscritos() {
 
     const { data, error } = await supabaseClient
