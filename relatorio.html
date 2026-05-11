@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Relatório</title>
+
     <link rel="stylesheet" href="assets/css/style.css">
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    </head>
-    
-    <body>
+</head>
 
-        <table>
+<body>
 
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Telefone</th>
-                        <th>Área de Atuação</th>
-                        <th>Interesse</th>
-                        <th>Data de inscrição</th>
-                    </tr>
-                </thead>
+    <header>
+        <nav class="menu">
+            <a href="index.html">Início</a>
+            <a href="cadastro.html">Cadastro</a>
+            <a href="relatorio.html">Relatório</a>
+        </nav>
+    </header>
 
-                <tbody id="tabelaInscritos"></tbody>
+    <main class="container-relatorio">
 
-            </table>
-            
-            <script src="assets/js/script.js"></script>
-    </body>
+        <h1>Relatório de Inscritos</h1>
+
+        <table class="tabela-relatorio">
+
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Área de Atuação</th>
+                    <th>Interesse</th>
+                    <th>Data de inscrição</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabelaInscritos"></tbody>
+
+        </table>
+
+    </main>
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+
 </html>
