@@ -1,15 +1,8 @@
-const supabaseUrl = "https://mxadxpzrmnszzrxfgxyc.supabase.co";
-const supabaseKey = "sb_publishable_vRBoSsDRe_phd-kZ0wy5Rw_4EXRkp99";
-
-const supabaseClient = supabase.createClient(
-  supabaseUrl,
-  supabaseKey
-);
 async function carregarInscritos() {
 
     const { data, error } = await supabaseClient
 
-        .from("cadastro")
+        .from("Cadastro")
 
         .select("*");
 
@@ -40,7 +33,7 @@ async function carregarInscritos() {
                 <td>${inscrito.nome ?? ""}</td>
                 <td>${inscrito.email ?? ""}</td>
                 <td>${inscrito.telefone ?? ""}</td>
-                <td>${area_atuacao ?? ""}</td>
+                <td>${inscrito.atuacao ?? ""}</td>
                 <td>${inscrito.interesse ?? ""}</td>
                 <td>${inscrito.data ?? ""}</td>
 
@@ -48,7 +41,7 @@ async function carregarInscritos() {
         `;
 
     });
- carregarInscritos();
+    
 }
 
 const dataEvento = new Date(2026, 6, 23, 0, 0, 0);
