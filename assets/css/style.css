@@ -318,3 +318,16 @@ button:hover {
   border: 1px solid #fecaca;
   border-radius: 4px;
 }
+
+.btnLogin{
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #228be6, #1c7ed6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
