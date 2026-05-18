@@ -80,3 +80,5 @@ function toggleOutros() {
         campo.value = "";
     }
  }
+
+ observacoes: formData.get("observacoes")
