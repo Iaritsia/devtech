@@ -22,6 +22,30 @@
         </nav>
     </header>
 
+    <div class="container">
+        <form id="formLogin">
+            <p>
+             Insira suas credenciais para acessar o relatório de cadastros do evento.
+            </p>
+
+         <div class="form-group">
+            <label>Usuário:</label>
+            <input type="text" id="loginUsuario" name="usuario" placeholder="login" required>
+         </div>
+
+         <div class="form-group">
+            <label>Senha:</label>
+            <input type="password" id="loginSenha" name="senha" placeholder="senha" required>
+         </div>
+        
+         <div id="mensagemErro"></div>
+
+         <button type="submit" id="btnLogin">Entrar</button>
+        </form>
+     </div>
+
+     <footer>© 2026 DevTech IA</footer>
+
     
     <script src="assets/js/script.js"></script>
 
