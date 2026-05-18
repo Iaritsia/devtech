@@ -92,8 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const usuario = document.getElementById("loginUsuario").value;
             const senha = document.getElementById("loginSenha").value;
 
-            if (usuario === "IA" && senha === "IA2603") {
-                window.location.href = "Relatorio.html";
+            if (usuario === "Iaritsia" && senha === "ia2603") {
+                window.location.href = "relatorio.html";
             } else {
                 mensagemErro.style.display = "block";
                 mensagemErro.innerText = "Usuário ou senha incorretos.";
