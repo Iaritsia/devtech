@@ -5,15 +5,16 @@
     <title>Inscrição para Evento</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
-</head>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script>
     const supabaseClient =supabase.createClient(
     "https://mxadxpzrmnszzrxfgxyc.supabase.co",
     "sb_publishable_vRBoSsDRe_phd-kZ0wy5Rw_4EXRkp99"    
     );
-</script>
+    </script>
+</head>
+
 
 <body>
 
@@ -90,7 +91,7 @@
 
 
             <label>Observações ou expectativas:</label>
-            <textarea outros rows="4"></textarea>
+            <textarea name="observacoes" rows="4"></textarea>
 
             <input type="hidden" name="_subject" value="Nova inscrição - DevTech">
 
