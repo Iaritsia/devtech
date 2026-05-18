@@ -58,11 +58,20 @@ async function carregarInscritos() {
                 <td>${inscrito.atuacao ?? ""}</td>
                 <td>${inscrito.interesse ?? ""}</td>
                 <td>${inscrito.data ?? ""}</td>
+                <td>
+                <button id="btnEditar-${inscrito.id}" onclick="habilitarEdicao(${inscrito.id})">
+                    Editar
+                </button>
 
             </tr>
         `;
 
     }); 
+
+}
+
+function habilitarEdicao(id) {
+    console.log("Editar inscrito:", id);
 }
 
 const dataEvento = new Date(2026, 6, 23, 0, 0, 0);
@@ -99,4 +108,8 @@ function toggleOutros() {
     }
  }
 formData.get("observacoes")
+
+
+
+
 
