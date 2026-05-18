@@ -1,5 +1,5 @@
 span {
-  
+
 }
 
 /* RESET BÁSICO */
@@ -217,4 +217,95 @@ button:hover {
 
 .tabela-relatorio tr:hover{
     background-color: rgba(255,255,255,0.1);
+}
+
+body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74c0fc, #4dabf7, #228be6);
+            margin: 0;
+            padding: 0;
+}
+
+.header {
+            background: linear-gradient(135deg, #1c7ed6, #1864ab);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.container {
+            max-width: 500px;
+            background: white;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+}
+
+label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+}
+
+input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            transition: 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+            border-color: #228be6;
+            outline: none;
+            box-shadow: 0 0 5px rgba(34,139,230,0.5);
+}
+
+.inline {
+            margin-top: 10px;
+            color: #444;
+}
+
+.inline input {
+            width: auto;
+            margin-right: 6px;
+}
+
+button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #228be6, #1c7ed6);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+}
+
+button:hover {
+            background: linear-gradient(135deg, #1c7ed6, #1864ab);
+            transform: translateY(-1px);
+}
+
+.btn-voltar {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #dee2e6;
+            color: #333;
+            text-decoration: none;
+            transition: 0.3s;
+}
+
+.btn-voltar:hover {
+            background: #ced4da;
 }
