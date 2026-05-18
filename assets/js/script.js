@@ -68,3 +68,15 @@ const dataEvento = new Date(2026, 6, 23, 0, 0, 0);
   }
 
   setInterval(atualizarContador, 1000);
+
+function toggleOutros() {
+    const checkbox = document.getElementById("outrosCheck");
+    const campo = document.getElementById("campoOutros");
+
+    if (checkbox.checked) {
+        campo.disabled = false;
+    } else {
+        campo.disabled = true;
+        campo.value = "";
+    }
+ }
