@@ -15,8 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 mensagemErro.innerText = "Usuário ou senha incorretos.";
             }
         });
-    });
-
+});
 
 if (document.getElementById("tabelaInscritos")) {
      carregarInscritos();
@@ -63,8 +62,7 @@ async function carregarInscritos() {
             </tr>
         `;
 
-    });
-    
+    }); 
 }
 
 const dataEvento = new Date(2026, 6, 23, 0, 0, 0);
@@ -85,9 +83,9 @@ const dataEvento = new Date(2026, 6, 23, 0, 0, 0);
 
     document.getElementById("contador").innerHTML =
       `Faltam: ${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
-  }
+ }
 
-  setInterval(atualizarContador, 1000);
+setInterval(atualizarContador, 1000);
 
 function toggleOutros() {
     const checkbox = document.getElementById("outrosCheck");
@@ -100,5 +98,5 @@ function toggleOutros() {
         campo.value = "";
     }
  }
- formData.get("observacoes")
+formData.get("observacoes")
 
