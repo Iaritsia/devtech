@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("formLogin");
+        const mensagemErro = document.getElementById("mensagemErro");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const usuario = document.getElementById("loginUsuario").value;
+            const senha = document.getElementById("loginSenha").value;
+
+            if (usuario === "Iaritsia" && senha === "ia2603") {
+                window.location.href = "relatorio.html";
+            } else {
+                mensagemErro.style.display = "block";
+                mensagemErro.innerText = "Usuário ou senha incorretos.";
+            }
+        });
+    });
+
+
 if (document.getElementById("tabelaInscritos")) {
      carregarInscritos();
 }
@@ -82,21 +102,3 @@ function toggleOutros() {
  }
  formData.get("observacoes")
 
-document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("formLogin");
-        const mensagemErro = document.getElementById("mensagemErro");
-
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const usuario = document.getElementById("loginUsuario").value;
-            const senha = document.getElementById("loginSenha").value;
-
-            if (usuario === "Iaritsia" && senha === "ia2603") {
-                window.location.href = "relatorio.html";
-            } else {
-                mensagemErro.style.display = "block";
-                mensagemErro.innerText = "Usuário ou senha incorretos.";
-            }
-        });
-    });
