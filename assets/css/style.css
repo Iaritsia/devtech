@@ -307,3 +307,14 @@ button:hover {
 .btn-voltar:hover {
             background: #ced4da;
 }
+
+.mensagemErro{
+  display: none;
+  color: #dc2626;
+  font-size: 14px;
+  margin-top: 8px;
+  padding: 10px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 4px;
+}
