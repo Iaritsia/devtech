@@ -80,8 +80,7 @@ function toggleOutros() {
         campo.value = "";
     }
  }
-
- observacoes: formData.get("observacoes")
+ formData.get("observacoes")
 
 document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("formLogin");
