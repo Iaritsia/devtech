@@ -33,6 +33,10 @@
 
         <h1>Relatório de Inscritos</h1>
 
+        <!-- ADICIONADO: mensagem de carregando para o usuário não ficar olhando tabela vazia -->
+
+        <p id="mensagemCarregando">Carregando inscritos...</p>
+
         <table class="tabela-relatorio">
 
             <thead>
@@ -57,7 +61,196 @@
 
     <script src="assets/js/script.js"></script>
 
-    
+    <script>
+        // Guarda os dados originais para cancelar uma edição
+        let dadosOriginais = {};
+ 
+        // Quando a página carregar, busca os inscritos no banco
+        document.addEventListener("DOMContentLoaded", async function () {
+            await carregarInscritos();
+        });
+ 
+        // Busca todos os inscritos do Supabase e monta a tabela
+        async function carregarInscritos() {
+            const { data, error } = await supabaseClient
+                .from("Cadastro")
+                .select("*")
+                .order("created_at", { ascending: false });
+ 
+            // Esconde o aviso de carregando
+            document.getElementById("mensagemCarregando").style.display = "none";
+ 
+            if (error) {
+                alert("Erro ao carregar inscritos: " + error.message);
+                return;
+            }
+ 
+            const tbody = document.getElementById("tabelaInscritos");
+            tbody.innerHTML = "";
+ 
+            if (data.length === 0) {
+                tbody.innerHTML = "<tr><td colspan='7'>Nenhum inscrito encontrado.</td></tr>";
+                return;
+            }
+ 
+            // Para cada inscrito, cria uma linha na tabela
+            data.forEach(function (inscrito) {
+                const linha = criarLinha(inscrito);
+                tbody.appendChild(linha);
+            });
+        }
+ 
+        // Cria uma linha da tabela com os dados do inscrito
+        function criarLinha(inscrito) {
+            const tr = document.createElement("tr");
+            tr.setAttribute("data-id", inscrito.id);
+ 
+            // Formata a data para o padrão brasileiro (dd/mm/aaaa)
+            const dataFormatada = inscrito.created_at
+                ? new Date(inscrito.created_at).toLocaleDateString("pt-BR")
+                : "—";
+ 
+            // Monta o HTML da linha com campos editáveis e botões de ação
+            tr.innerHTML = `
+                <td>
+                    <span class="texto-normal">${inscrito.nome || ""}</span>
+                    <input class="campo-edicao" type="text" value="${inscrito.nome || ""}" style="display:none;">
+                </td>
+                <td>
+                    <span class="texto-normal">${inscrito.email || ""}</span>
+                    <input class="campo-edicao" type="email" value="${inscrito.email || ""}" style="display:none;">
+                </td>
+                <td>
+                    <span class="texto-normal">${inscrito.telefone || "—"}</span>
+                    <input class="campo-edicao" type="tel" value="${inscrito.telefone || ""}" style="display:none;">
+                </td>
+                <td>
+                    <span class="texto-normal">${inscrito.atuacao || "—"}</span>
+                    <input class="campo-edicao" type="text" value="${inscrito.atuacao || ""}" style="display:none;">
+                </td>
+                <td>
+                    <span class="texto-normal">${inscrito.interesse || "—"}</span>
+                    <input class="campo-edicao" type="text" value="${inscrito.interesse || ""}" style="display:none;">
+                </td>
+                <td>${dataFormatada}</td>
+                <td class="coluna-acoes">
+                    <!-- Botões visíveis normalmente -->
+                    <div class="botoes-normais">
+                        <button class="btn-editar" onclick="ativarEdicao(this)">✏️ Editar</button>
+                        <button class="btn-excluir" onclick="excluirInscrito(this)">🗑️ Excluir</button>
+                    </div>
+                    <!-- Botões visíveis apenas durante a edição -->
+                    <div class="botoes-edicao" style="display:none;">
+                        <button class="btn-salvar" onclick="salvarEdicao(this)">💾 Salvar</button>
+                        <button class="btn-cancelar" onclick="cancelarEdicao(this)">✖ Cancelar</button>
+                    </div>
+                </td>
+            `;
+ 
+            return tr;
+        }
+ 
+        // Ativa o modo de edição de uma linha
+        function ativarEdicao(botao) {
+            const linha = botao.closest("tr");
+            const id = linha.getAttribute("data-id");
+ 
+            // Guarda os valores originais antes de editar (para poder cancelar)
+            dadosOriginais[id] = {};
+            linha.querySelectorAll("td").forEach(function (celula) {
+                const input = celula.querySelector("input.campo-edicao");
+                if (input) {
+                    dadosOriginais[id][input.type] = input.value;
+                }
+            });
+ 
+            // Mostra os inputs, esconde os textos
+            linha.querySelectorAll(".texto-normal").forEach(el => el.style.display = "none");
+            linha.querySelectorAll(".campo-edicao").forEach(el => el.style.display = "inline-block");
+ 
+            // Troca os botões
+            linha.querySelector(".botoes-normais").style.display = "none";
+            linha.querySelector(".botoes-edicao").style.display = "flex";
+        }
+ 
+        // Cancela a edição e volta os valores originais
+        function cancelarEdicao(botao) {
+            const linha = botao.closest("tr");
+ 
+            // Volta a mostrar os textos, esconde os inputs
+            linha.querySelectorAll(".texto-normal").forEach(el => el.style.display = "inline");
+            linha.querySelectorAll(".campo-edicao").forEach(el => el.style.display = "none");
+ 
+            // Troca os botões de volta
+            linha.querySelector(".botoes-normais").style.display = "flex";
+            linha.querySelector(".botoes-edicao").style.display = "none";
+        }
+ 
+        // Salva a edição no banco de dados Supabase
+        async function salvarEdicao(botao) {
+            const linha = botao.closest("tr");
+            const id = linha.getAttribute("data-id");
+ 
+            // Pega os valores digitados nos inputs
+            const inputs = linha.querySelectorAll("input.campo-edicao");
+            const novosDados = {
+                nome: inputs[0].value,
+                email: inputs[1].value,
+                telefone: inputs[2].value,
+                atuacao: inputs[3].value,
+                interesse: inputs[4].value
+            };
+ 
+            // Envia a atualização para o Supabase
+            const { error } = await supabaseClient
+                .from("Cadastro")
+                .update(novosDados)
+                .eq("id", id);
+ 
+            if (error) {
+                alert("Erro ao salvar: " + error.message);
+                return;
+            }
+ 
+            // Atualiza os textos visíveis na linha com os novos valores
+            const textos = linha.querySelectorAll(".texto-normal");
+            textos[0].innerText = novosDados.nome;
+            textos[1].innerText = novosDados.email;
+            textos[2].innerText = novosDados.telefone || "—";
+            textos[3].innerText = novosDados.atuacao || "—";
+            textos[4].innerText = novosDados.interesse || "—";
+ 
+            // Sai do modo de edição
+            cancelarEdicao(botao);
+ 
+            alert("Inscrito atualizado com sucesso!");
+        }
+ 
+        // Exclui um inscrito do banco de dados
+        async function excluirInscrito(botao) {
+            const linha = botao.closest("tr");
+            const id = linha.getAttribute("data-id");
+            const nome = linha.querySelector(".texto-normal").innerText;
+ 
+            // Pede confirmação antes de excluir
+            const confirmar = confirm(`Tem certeza que deseja excluir o inscrito "${nome}"?`);
+            if (!confirmar) return;
+ 
+            const { error } = await supabaseClient
+                .from("Cadastro")
+                .delete()
+                .eq("id", id);
+ 
+            if (error) {
+                alert("Erro ao excluir: " + error.message);
+                return;
+            }
+ 
+            // Remove a linha da tabela visualmente
+            linha.remove();
+            alert("Inscrito excluído com sucesso.");
+        }
+    </script>
 
 </body>
 
