@@ -1,333 +1,564 @@
-
-
-/* RESET BÁSICO */
+/* ============================================================
+   STYLE.CSS — DevTech IA
+   Visual: tecnológico, gradiente azul escuro, cards modernos
+   Organizado em seções numeradas para fácil manutenção
+   ============================================================ */
+ 
+ 
+/* ============================================================
+   1. VARIÁVEIS GLOBAIS (cores e tamanhos centralizados)
+   🎨 ALTERE AQUI para mudar as cores do site inteiro
+   ============================================================ */
+:root {
+  --azul-principal:  #2563eb;   /* botões, links ativos, destaques */
+  --azul-hover:      #1e40af;   /* cor ao passar o mouse nos botões */
+  --azul-escuro:     #1e3a8a;   /* títulos, cabeçalho, fundo escuro */
+  --azul-muito-esc:  #0f172a;   /* fundo do body e header */
+  --azul-claro:      #38bdf8;   /* hover do menu e cronômetro */
+  --branco:          #ffffff;
+  --cinza-claro:     #f1f5f9;
+  --cinza-borda:     #ccc;
+  --texto-escuro:    #333333;
+  --texto-medio:     #444444;
+  --vermelho-erro:   #dc2626;
+  --verde-sucesso:   #16a34a;
+  --amarelo-editar:  #d97706;
+}
+ 
+ 
+/* ============================================================
+   2. RESET E BASE
+   Zera margens padrão do navegador e define fonte base
+   ============================================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, sans-serif;
+  /* 🔤 ALTERE AQUI: troque 'Segoe UI' pela fonte do Google Fonts
+     Ex: adicione no HTML: <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+     Depois troque para: font-family: 'Poppins', sans-serif; */
 }
-
-/* FUNDO GERAL */
+ 
 body {
   background: linear-gradient(135deg, #0f172a, #1e3a8a);
-  color: #333;
-  padding: 20px;
+  /* 🎨 ALTERE AQUI: as duas cores do gradiente de fundo */
+  color: var(--texto-escuro);
+  min-height: 100vh;
+  padding-bottom: 2rem;
 }
-
-/* MENU */
-nav {
-    text-align: center;
-
-  margin-bottom: 20px;
+ 
+ 
+/* ============================================================
+   3. MENU DE NAVEGAÇÃO
+   ============================================================ */
+nav.menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  /* 🎨 ALTERE AQUI: opacidade do fundo do menu (0.0 = transparente, 1.0 = sólido) */
 }
-
-nav a {
+ 
+nav.menu a {
   text-decoration: none;
-  color: #fff;
-  margin-right: 15px;
-  font-weight: bold;
-  transition: 0.3s;
+  color: var(--branco);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
 }
-
-nav a:hover {
-  color: #38bdf8;
+ 
+nav.menu a:hover {
+  background-color: rgba(56, 189, 248, 0.2);
+  color: var(--azul-claro);
+  /* 🎨 ALTERE AQUI: cor do link ao passar o mouse */
 }
-
-/* CONTAINER PRINCIPAL */
+ 
+ 
+/* ============================================================
+   4. CABEÇALHO (header)
+   ============================================================ */
+header {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+  color: var(--branco);
+}
+ 
+header img {
+  width: 90px;
+  /* 🖼️ ALTERE AQUI: tamanho do logo. Tente 70px ou 110px */
+  height: auto;
+  margin-bottom: 0.75rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+ 
+header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--branco);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  /* 🔠 ALTERE AQUI: tamanho do título principal */
+}
+ 
+header p {
+  font-size: 1rem;
+  color: #93c5fd;
+  margin-top: 0.3rem;
+}
+ 
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #bfdbfe;
+}
+ 
+ 
+/* ============================================================
+   5. CRONÔMETRO REGRESSIVO
+   ============================================================ */
+.contador {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--azul-claro);
+  text-align: center;
+  letter-spacing: 1px;
+  /* 🎨 ALTERE AQUI: cor e tamanho do cronômetro */
+}
+ 
+ 
+/* ============================================================
+   6. BLOCO DE TÍTULO DE PÁGINA (usado no cadastro)
+   ============================================================ */
+.header {
+  text-align: center;
+  padding: 2rem 1rem 0.5rem;
+}
+ 
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--branco);
+}
+ 
+.header p {
+  font-size: 0.95rem;
+  color: #93c5fd;
+  margin-top: 0.3rem;
+}
+ 
+ 
+/* ============================================================
+   7. CONTAINER PRINCIPAL (caixa branca central)
+   ============================================================ */
 .container {
-  max-width: 900px;
-  margin: auto;
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  max-width: 600px;
+  /* 📐 ALTERE AQUI: largura máxima da caixa. Tente 700px ou 500px */
+  margin: 2rem auto;
+  background: var(--branco);
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
-
-/* TÍTULOS */
-h1, h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #1e3a8a;
-}
-
-/* IMAGEM */
-.banner {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-/* TEXTO DO EVENTO */
-.info-evento {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.info-evento p {
-  margin: 8px 0;
-  line-height: 1.5;
-}
-
-/* FORMULÁRIO */
-form {
-  margin-top: 20px;
-}
-
-/* LABELS */
+ 
+ 
+/* ============================================================
+   8. FORMULÁRIOS (cadastro e login)
+   ============================================================ */
+form label,
 label {
   font-weight: 600;
   display: block;
-  margin-top: 12px;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  color: var(--texto-escuro);
 }
-
-/* INPUTS */
-input, select {
+ 
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+select,
+textarea {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--cinza-borda);
   border-radius: 8px;
-  border: 1px solid #ccc;
-  transition: 0.3s;
+  font-size: 0.95rem;
+  color: var(--texto-escuro);
+  background: var(--branco);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
-
-/* FOCO */
-input:focus, select:focus {
-  border-color: #2563eb;
+ 
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--azul-principal);
   outline: none;
-  box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  /* ✨ ALTERE AQUI: brilho ao clicar no campo */
 }
-
-/* RADIO E CHECKBOX */
+ 
+input:disabled {
+  background: #e9ecef;
+  cursor: not-allowed;
+  color: #999;
+}
+ 
+/* Radio e checkbox não ocupam largura total */
 input[type="radio"],
 input[type="checkbox"] {
   width: auto;
-  margin-right: 5px;
+  margin-right: 6px;
 }
-
-/* GRUPOS */
-.grupo {
-  margin-top: 10px;
+ 
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: var(--texto-medio);
 }
-
-/* BOTÃO */
-button {
+ 
+.form-group {
+  margin-bottom: 1rem;
+}
+ 
+/* Campo "Outros" — aparece quando marcado o checkbox */
+#campoOutros {
+  margin-top: 0.4rem;
+}
+ 
+ 
+/* ============================================================
+   9. BOTÕES
+   ============================================================ */
+ 
+/* Botão principal (enviar/entrar) */
+button[type="submit"],
+#btnEnviar,
+#btnLogin {
+  display: block;
   width: 100%;
-  padding: 12px;
-  margin-top: 20px;
+  padding: 0.8rem;
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, var(--azul-principal), var(--azul-escuro));
+  /* 🎨 ALTERE AQUI: gradiente do botão principal */
+  color: var(--branco);
   border: none;
   border-radius: 10px;
-  background: #2563eb;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s, transform 0.15s;
 }
-
-button:hover {
-  background: #1e40af;
+ 
+button[type="submit"]:hover,
+#btnEnviar:hover,
+#btnLogin:hover {
+  background: linear-gradient(135deg, var(--azul-hover), #0f172a);
+  transform: translateY(-2px);
 }
-
-/* RESPONSIVO */
-@media (max-width: 600px) {
-  .container {
-    padding: 15px;
-  }
+ 
+button[type="submit"]:disabled,
+#btnEnviar:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
 }
-
-.topicos {
+ 
+/* Botão "Voltar para a página inicial" */
+.btn-voltar {
+  display: block;
+  text-align: center;
+  margin-top: 0.8rem;
+  padding: 0.7rem;
+  border-radius: 8px;
+  background: #e2e8f0;
+  color: var(--texto-escuro);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+ 
+.btn-voltar:hover {
+  background: #cbd5e1;
+}
+ 
+/* -------------------------------------------------------
+   Botões de ação do relatório (editar / excluir / salvar / cancelar)
+   ------------------------------------------------------- */
+.btn-editar {
+  background-color: var(--amarelo-editar);
+  color: var(--branco);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+ 
+.btn-excluir {
+  background-color: var(--vermelho-erro);
+  color: var(--branco);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+ 
+.btn-salvar {
+  background-color: var(--verde-sucesso);
+  color: var(--branco);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+ 
+.btn-cancelar {
+  background-color: #64748b;
+  color: var(--branco);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+ 
+.btn-editar:hover,
+.btn-excluir:hover,
+.btn-salvar:hover,
+.btn-cancelar:hover {
+  opacity: 0.82;
+}
+ 
+.botoes-normais,
+.botoes-edicao {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
+  gap: 6px;
+  flex-wrap: wrap;
 }
-
+ 
+ 
+/* ============================================================
+   10. CARDS (index.html e eventos.html)
+   ============================================================ */
+.topicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+ 
 .card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  background: var(--branco);
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: transform 0.25s, box-shadow 0.25s;
+  /* 🃏 ALTERE AQUI: padding (espaço interno) e border-radius */
 }
-
+ 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
 }
-
+ 
+.card .icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+ 
 .card h3 {
-  margin-bottom: 10px;
-  color: #2b6cb0; /* mantém seu azul */
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--azul-escuro);
 }
-
+ 
 .card p {
-  color: #444;
-  line-height: 1.5;
+  font-size: 0.88rem;
+  color: var(--texto-medio);
+  line-height: 1.55;
 }
-
-/* CRONÔMETRO */
-.contador {
-  margin-top: 15px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #2563eb; /* azul do seu botão */
-  text-align: center;
+ 
+/* Cards do index ficam em coluna (sem ícone lateral) */
+.topicos .card {
+  flex-direction: column;
 }
-
-/* ===== RELATÓRIO ===== */
-
-.container-relatorio{
-    width: 90%;
-    margin: 40px auto;
-    color: white;
+ 
+/* Container dos eventos usa o mesmo .container padrão
+   mas pode ser mais largo */
+.container.eventos {
+  max-width: 800px;
 }
-
-.container-relatorio h1{
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 32px;
-}
-
-.tabela-relatorio{
-    width: 100%;
-    border-collapse: collapse;
-    background-color: rgba(255,255,255,0.08);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.tabela-relatorio th{
-    background-color: #081b4b;
-    color: white;
-    padding: 15px;
-    text-align: left;
-    font-size: 18px;
-}
-
-.tabela-relatorio td{
-    padding: 14px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    color: white;
-}
-
-.tabela-relatorio tr:hover{
-    background-color: rgba(255,255,255,0.1);
-}
-
-body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #74c0fc, #4dabf7, #228be6);
-            margin: 0;
-            padding: 0;
-}
-
-.header {
-            background: linear-gradient(135deg, #1c7ed6, #1864ab);
-            color: white;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
-}
-
-.container {
-            max-width: 500px;
-            background: white;
-            margin: 40px auto;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
-}
-
-label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-            color: #333;
-}
-
-input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            transition: 0.3s;
-}
-
-input:focus, select:focus, textarea:focus {
-            border-color: #228be6;
-            outline: none;
-            box-shadow: 0 0 5px rgba(34,139,230,0.5);
-}
-
-.inline {
-            margin-top: 10px;
-            color: #444;
-}
-
-.inline input {
-            width: auto;
-            margin-right: 6px;
-}
-
-button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 20px;
-            background: linear-gradient(135deg, #228be6, #1c7ed6);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-}
-
-button:hover {
-            background: linear-gradient(135deg, #1c7ed6, #1864ab);
-            transform: translateY(-1px);
-}
-
-.btn-voltar {
-            display: block;
-            text-align: center;
-            margin-top: 10px;
-            padding: 12px;
-            border-radius: 8px;
-            background: #dee2e6;
-            color: #333;
-            text-decoration: none;
-            transition: 0.3s;
-}
-
-.btn-voltar:hover {
-            background: #ced4da;
-}
-
-.mensagemErro{
-  display: none;
-  color: #dc2626;
-  font-size: 14px;
-  margin-top: 8px;
-  padding: 10px;
+ 
+ 
+/* ============================================================
+   11. MENSAGEM DE ERRO NO LOGIN
+   ============================================================ */
+#mensagemErro {
+  display: none; /* Começa escondido — o JS mostra quando precisa */
+  color: var(--vermelho-erro);
+  font-size: 0.88rem;
+  margin-top: 0.6rem;
+  padding: 0.6rem 0.8rem;
   background: #fef2f2;
   border: 1px solid #fecaca;
-  border-radius: 4px;
+  border-radius: 6px;
 }
-
-.btnLogin{
+ 
+ 
+/* ============================================================
+   12. TABELA DO RELATÓRIO
+   ============================================================ */
+.container-relatorio {
+  width: 92%;
+  max-width: 1100px;
+  margin: 2rem auto;
+  color: var(--branco);
+  overflow-x: auto; /* Rolagem horizontal no celular */
+}
+ 
+.container-relatorio h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: var(--branco);
+}
+ 
+.tabela-relatorio {
   width: 100%;
-  padding: 12px;
-  margin-top: 20px;
-  background: linear-gradient(135deg, #228be6, #1c7ed6);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.88rem;
+}
+ 
+.tabela-relatorio thead {
+  background-color: #081b4b;
+}
+ 
+.tabela-relatorio th {
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--branco);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+ 
+.tabela-relatorio td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--branco);
+  vertical-align: middle;
+}
+ 
+.tabela-relatorio tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+ 
+/* Campo de edição dentro da célula */
+.campo-edicao {
+  width: 100%;
+  padding: 4px 6px;
+  border: 1px solid var(--azul-claro);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: var(--texto-escuro);
+  background: var(--branco);
+}
+ 
+.coluna-acoes {
+  min-width: 160px;
+}
+ 
+/* Mensagem de carregando */
+#mensagemCarregando {
+  text-align: center;
+  color: #93c5fd;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+ 
+ 
+/* ============================================================
+   13. RODAPÉ
+   ============================================================ */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  background: rgba(0, 0, 0, 0.3);
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+ 
+ 
+/* ============================================================
+   14. RESPONSIVIDADE (celular — telas menores que 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+ 
+  header h1 {
+    font-size: 1.7rem;
+  }
+ 
+  .container {
+    margin: 1rem;
+    padding: 1.2rem;
+  }
+ 
+  .card {
+    flex-direction: column;
+  }
+ 
+  .tabela-relatorio th,
+  .tabela-relatorio td {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.78rem;
+  }
+ 
+  .botoes-normais,
+  .botoes-edicao {
+    flex-direction: column;
+  }
+ 
+  .info {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
 }
